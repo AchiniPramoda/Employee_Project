@@ -17,6 +17,7 @@ const AdminContainer = () => {
                     <Route path="/admin/employees">
                         <AdminEmployeeManager />
                     </Route>
+                   
                     <Route exact path="/">
 
                     </Route>

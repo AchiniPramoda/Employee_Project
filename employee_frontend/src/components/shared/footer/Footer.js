@@ -1,5 +1,5 @@
 import React from "react";
-import logo from './lg5.png';
+//import logo from './lg5.png';
 import styled from 'styled-components';
 import { HiLocationMarker} from "react-icons/hi";
 import {HiMailOpen} from "react-icons/hi";
