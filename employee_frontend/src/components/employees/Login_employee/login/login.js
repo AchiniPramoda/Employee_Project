@@ -1,7 +1,10 @@
 import { useState } from "react";
+import React from 'react'
+import ReactDOM from 'react-dom'
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./login.css";
+import logo from './my1.png';
 
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
@@ -14,10 +17,10 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:8092/api/";
+			const url = "http://localhost:8092/api/adding";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			window.location = "/";
+			window.location = "/Signup";
 		} catch (error) {
 			if (
 				error.response &&
@@ -30,11 +33,11 @@ const Login = () => {
 	};
 
 	return (
-		<div className={styles.login_container}>
-			<div className={styles.login_form_container}>
-				<div className={styles.left}>
-					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Login to Your Account</h1>
+		<div className="login">
+			<div className="login_form">
+				<div className="lefts">
+					<form className="form_my" onSubmit={handleSubmit}>
+						<h1>Login to Your Account</h1>	<br/>
 						<input
 							type="email"
 							placeholder="Email"
@@ -42,8 +45,9 @@ const Login = () => {
 							onChange={handleChange}
 							value={data.email}
 							required
-							className={styles.input}
+							className="inputs"
 						/>
+						<br/>
 						<input
 							type="password"
 							placeholder="Password"
@@ -51,19 +55,20 @@ const Login = () => {
 							onChange={handleChange}
 							value={data.password}
 							required
-							className={styles.input}
-						/>
-						{error && <div className={styles.error_msg}>{error}</div>}
-						<button type="submit" className={styles.green_btn}>
-							Sing In
+							className="inputs"
+						/>	<br/>
+						{error && <div className="error_msg">{error}</div>}
+						<button type="submit" className="green_btn">
+							Sign In
 						</button>
 					</form>
 				</div>
-				<div className={styles.right}>
-					<h1>New Here ?</h1>
-					<Link to="/signup">
-						<button type="button" className={styles.white_btn}>
-							Sing Up
+				<div className="rights">
+				<img src={logo} alt="My logo"  style={{ height: 180, width: 180, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
+					<h3>Don't have an account ?</h3>
+					<Link to="/admin/employees/Signup">
+						<button type="button" className="white_btn">
+							Sign Up
 						</button>
 					</Link>
 				</div>
