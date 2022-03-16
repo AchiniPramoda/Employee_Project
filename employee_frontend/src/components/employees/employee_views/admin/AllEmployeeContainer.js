@@ -21,7 +21,7 @@ class AllEmployeeContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            //employees: [],
+            employees: [],
             FilterEmployeee: [],
             isGen: false
            
@@ -67,7 +67,7 @@ class AllEmployeeContainer extends Component {
     }
 
     getRedirectButton = () => {
-        return <button type="button" onClick={() => { this.props.history.push("/admin/employees/CreateEmployee") }} class="btn btn-outline-primary m-2">Emoployee Create</button>
+        return <button type="button" onClick={() => { this.props.history.push("/admin/employees/CreateEmployee") }} class="">Emoployee Create</button>
     }
 
 
@@ -101,14 +101,14 @@ class AllEmployeeContainer extends Component {
                                     documentTitle={"Employee"}
                                     onAfterPrint={() => { this.setState({ isGen: false }); }}
                                     trigger={() => {
-                                        return <button type="button" class="btn btn-primary">Generate PDF
+                                        return <button type="button" class="">Generate PDF
                                         </button>
                                         
                                     }}
                                     
                                     content={() => this.componentRef}
                                 />
-                                <button onClick={() => { this.setState({ isGen: false }); }} type="button" class="btn btn-danger m-2">Cancel
+                                <button onClick={() => { this.setState({ isGen: false }); }} type="button" class="">Cancel
                               
                                 </button>
                             </div>
@@ -133,7 +133,7 @@ class AllEmployeeContainer extends Component {
                                         <th scope="col">End Date</th>
                                         {
                                             
-                                            !this.state.isGen ? <th scope="col">Actions</th> : <React.Fragment />
+                                            !this.state.isGen ? <th scope="col">Actions</th> :<React.Fragment />
                                         }
                                         
                                     </tr>
@@ -157,7 +157,7 @@ class AllEmployeeContainer extends Component {
                     <div className="col">
                    
                                 
-                               <button type="button" onClick={() => { this.setState({ isGen: true }); }} class="btn btn-outline-secondary">Genrate Report
+                               <button type="button" onClick={() => { this.setState({ isGen: true }); }} class="">Genrate Report
                                <img src={reports} alt="My logo"  style={{ height: 30, width: 30, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
                                </button>
                            </div>
@@ -176,10 +176,16 @@ const SearchContainer = styled.div`
     margin-top:30px;
     border: 1px solid  gray;
 }
-.table{
-tr:nth-child(even){background-color: #f2f2f2;
 
-}
+
+
+    .table{
+        tr:nth-child(even) {background-color: #CCC}
+        tr:nth-child(odd) {background-color: #FFF}
+    }
+    
+
+
 tr:hover {background-color: #ddd;
 };
 

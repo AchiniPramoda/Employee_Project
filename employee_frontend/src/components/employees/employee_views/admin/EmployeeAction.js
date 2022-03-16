@@ -51,11 +51,12 @@ const EmployeeAction = (props) => {
             <td>{employee.Address}</td>
             <td>{employee.joindate}</td>
             <td>{employee.ivalutionDate}</td>
-           <td>
+        
+              { !props.isGen ?<td>
                     <button onClick={() => handleClick(`/admin/employees/UpdateEmployee/${employee._id}`)} type="button" class="btn btn-success m-">Update</button>
                     <button onClick={deleteEmmpolyee} type="button" class="btn btn-danger m-1">Delete</button>
                 </td> : <React.Fragment />
-          
+    }
         </tr>
     
     </React.Fragment>);

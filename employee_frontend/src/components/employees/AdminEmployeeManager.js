@@ -11,7 +11,7 @@ import Empmore from "./employee_views/admin/moreEmployeeAction";
 import Login from './Login_employee/login/login';
 import AllEmployeeContainer from './employee_views/admin/AllEmployeeContainer';
 import Signup from './Login_employee/Signup/signup';
-import Main from './Login_employee/Main/main'
+
 const AdminManager = () => {
    
     return (<React.Fragment>
@@ -39,9 +39,7 @@ const AdminManager = () => {
                 <Route path="/admin/employees/signup">
                     <Signup />
                 </Route>
-                <Route path="/admin/employees/">
-                    <Main />
-                </Route>
+          
                 
                 <Route path="/">
                     <AllEmployeeContainer />

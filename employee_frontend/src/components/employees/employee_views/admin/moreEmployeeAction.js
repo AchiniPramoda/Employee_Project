@@ -170,10 +170,16 @@ const SearchContainer = styled.div`
     margin-top:30px;
     border: 1px solid  gray;
 }
-.table{
-tr:nth-child(even){background-color: #f2f2f2;
 
-}
+
+
+    .table{
+        tr:nth-child(even) {background-color: #CCC}
+        tr:nth-child(odd) {background-color: #FFF}
+    }
+    
+
+
 tr:hover {background-color: #ddd;
 };
 
