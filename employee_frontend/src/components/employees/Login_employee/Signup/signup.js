@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
+import logo from './my1.png';
 import styles from "./signup.css";
-
+import { Alert } from '../../../../services/Alert';
 const Signup = () => {
 	const [data, setData] = useState({
 		firstName: "",
@@ -11,7 +13,7 @@ const Signup = () => {
 		password: "",
 	});
 	const [error, setError] = useState("");
-	const navigate = useNavigate();
+	const navigate = useHistory();
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
@@ -20,7 +22,7 @@ const Signup = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:892/api/";
+			const url = "http://localhost:8092/api/";
 			const { data: res } = await axios.post(url, data);
 			navigate("/login");
 			console.log(res.message);
@@ -29,25 +31,29 @@ const Signup = () => {
 				error.response &&
 				error.response.status >= 400 &&
 				error.response.status <= 500
+				
 			) {
 				setError(error.response.data.message);
+				Alert("error", "Form Validation Error!")
 			}
 		}
 	};
 
 	return (
-		<div className={styles.signup_container}>
-			<div className={styles.signup_form_container}>
-				<div className={styles.left}>
+		<div className="signup_container">
+			<div className="signup_form">
+				<div className="rights">
+				<img src={logo} alt="My logo"  style={{ height: 180, width: 180, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
 					<h1>Welcome Back</h1>
 					<Link to="/login">
-						<button type="button" className={styles.white_btn}>
+						<button type="button" className="white_btn">
 							Sing in
 						</button>
 					</Link>
 				</div>
-				<div className={styles.right}>
-					<form className={styles.form_container} onSubmit={handleSubmit}>
+				<div className="lefts">
+					<form className="form_my" onSubmit={handleSubmit}>
+					
 						<h1>Create Account</h1>
 						<input
 							type="text"
@@ -56,7 +62,7 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.firstName}
 							required
-							className={styles.input}
+							className="inputs"
 						/>
 						<input
 							type="text"
@@ -65,7 +71,7 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.lastName}
 							required
-							className={styles.input}
+							className="inputs"
 						/>
 						<input
 							type="email"
@@ -74,7 +80,7 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.email}
 							required
-							className={styles.input}
+							className="inputs"
 						/>
 						<input
 							type="password"
@@ -83,10 +89,10 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.password}
 							required
-							className={styles.input}
+							className="inputs"
 						/>
-						{error && <div className={styles.error_msg}>{error}</div>}
-						<button type="submit" className={styles.green_btn}>
+						{error && <div className="error_msg">{error}</div>}
+						<button type="submit" className="green_btn">
 							Sing Up
 						</button>
 					</form>
