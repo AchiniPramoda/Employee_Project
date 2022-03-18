@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import axios from "axios"
-import img1 from './logo8.png';
-import img2 from './img22.png';
-import img3 from './img33.png';
-import img4 from './img66.png';
-import img5 from './img44.png';
-
+import home3 from './home3.png';
+import img2 from './img1.png';
+import img3 from './img2.png';
+import img4 from './img3.png';
+import img5 from './employee.png';
+import styles from "./all.css";
 import SmallView from "./EmployeeSmallView"
 const isBackgroundRed = true;
 class AllForUser extends Component {
@@ -49,11 +49,11 @@ class AllForUser extends Component {
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-6 col-sm-12 col-12">
               <div className="banner-con">
-                <h1 className="heading-1 mb-20">
+                <h1 className="my">
                   Transforming
                   Business Intelligence with Employees...
                 </h1>
-                <p className="">
+                <p className="my">
                   Learn what your audience is doing on your website to make smart, informed decisions. Let
                   Hypertarget accelerate your business growth with an insightful dashboard that delivers
                   actionable, visual insights. Our data analytics software is here to help you out!
@@ -63,7 +63,7 @@ class AllForUser extends Component {
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 col-12">
               <div className="banner-img-wrapper">
-                <img src={img1} alt="My logo"  width={600} height={700} layout='responsive'  />
+                <img src={home3} alt="My logo"  width={800} height={700} layout='responsive'  />
               </div>
             </div>
             {/* col-2 */}
@@ -99,11 +99,11 @@ class AllForUser extends Component {
 			<div
 				class="row h-100 align-items-center justify-content-center text-center">
 				<div class="col-lg-10 align-self-end">
-				<h2 className={"text-secondary text-center mb-5"}>Our Employees Details</h2>
+				<h2 className={"my"}>Our Employees Details</h2>
 					<hr class="divider my-4" />
 				</div>
 				<div class="col-lg-8 align-self-baseline">
-					<p class="text-white-75 font-weight-light mb-5">"Whether you enjoy city breaks or extended holidays in the sun, you can always improve your travel experiences by staying in a small."</p>
+					<p class="my">"Whether you enjoy city breaks or extended holidays in the sun, you can always improve your travel experiences by staying in a small."</p>
 
 				</div>
 			</div>
