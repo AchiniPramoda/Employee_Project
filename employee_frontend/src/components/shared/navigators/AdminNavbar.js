@@ -9,6 +9,8 @@ const AdminNavbar = () => {
         history.push(path);
     }
 
+
+   
     return (
        <MainContainer>
   <nav class="navbar navbar-expand-lg navbar-dark bg-black">
@@ -41,8 +43,9 @@ const AdminNavbar = () => {
     </ul>
   </div>
 
-  <button type="button" class="butt">Login</button>
-   <button type="button" class="butt1"onclick="document.location='registration2.html'">Sign up</button>
+  <button type="button" class="butt" onClick={() => handleClick("/admin/employees/Login")}>Login</button>
+   <button type="button" class="butt1" onClick={() => handleClick("/admin/employees/Signup")}>Sign up</button>
+  
 </nav>
 </MainContainer>
     );

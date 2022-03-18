@@ -1,5 +1,5 @@
-import styles from "./styles.module.css";
-
+import styles from "./main";
+import React from 'react'
 const Main = () => {
 	const handleLogout = () => {
 		localStorage.removeItem("token");
@@ -17,3 +17,4 @@ const Main = () => {
 		</div>
 	);
 };
+export default Main;
