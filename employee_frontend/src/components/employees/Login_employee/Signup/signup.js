@@ -34,7 +34,7 @@ const Signup = () => {
 				
 			) {
 				setError(error.response.data.message);
-				Alert("error", "Form Validation Error!")
+			
 			}
 		}
 	};
@@ -45,7 +45,7 @@ const Signup = () => {
 				<div className="rights">
 				<img src={logo} alt="My logo"  style={{ height: 180, width: 180, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
 					<h1>Welcome Back</h1>
-					<Link to="/Login">
+					<Link to="/admin/employees/Login">
 						<button type="button" className="white_btn">
 							Sing in
 						</button>

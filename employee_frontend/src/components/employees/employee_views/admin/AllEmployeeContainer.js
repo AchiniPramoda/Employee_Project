@@ -67,7 +67,7 @@ class AllEmployeeContainer extends Component {
     }
 
     getRedirectButton = () => {
-        return <button type="button" onClick={() => { this.props.history.push("/admin/employees/CreateEmployee") }} class="">Emoployee Create</button>
+        return <button type="button" onClick={() => { this.props.history.push("/admin/employees/CreateEmployee") }} class="but3">Emoployee Create</button>
     }
 
 
@@ -101,14 +101,14 @@ class AllEmployeeContainer extends Component {
                                     documentTitle={"Employee"}
                                     onAfterPrint={() => { this.setState({ isGen: false }); }}
                                     trigger={() => {
-                                        return <button type="button" class="">Generate PDF
+                                        return <button type="button" class="but2">Generate PDF
                                         </button>
                                         
                                     }}
                                     
                                     content={() => this.componentRef}
                                 />
-                                <button onClick={() => { this.setState({ isGen: false }); }} type="button" class="">Cancel
+                                <button onClick={() => { this.setState({ isGen: false }); }} type="button" class="but">Cancel
                               
                                 </button>
                             </div>
@@ -140,7 +140,6 @@ class AllEmployeeContainer extends Component {
                                 </thead>
                                
                                 <tbody>
-                                    
                                     <React.Fragment>
                                         {
                                             this.state.FilterEmployeee.map(employee => {
@@ -157,7 +156,7 @@ class AllEmployeeContainer extends Component {
                     <div className="col">
                    
                                 
-                               <button type="button" onClick={() => { this.setState({ isGen: true }); }} class="">Genrate Report
+                               <button type="button" onClick={() => { this.setState({ isGen: true }); }} class="but22">Genrate Report
                                <img src={reports} alt="My logo"  style={{ height: 30, width: 30, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
                                </button>
                            </div>
@@ -176,9 +175,6 @@ const SearchContainer = styled.div`
     margin-top:30px;
     border: 1px solid  gray;
 }
-
-
-
     .table{
         tr:nth-child(even) {background-color: #CCC}
         tr:nth-child(odd) {background-color: #FFF}
@@ -203,6 +199,7 @@ table th,tr {
   }
  .btn{
       color:white;
+      border-radius:7px;
       border: 1px solid gray;
       border-style: solid;
       width:89%;
@@ -210,4 +207,62 @@ table th,tr {
   h3{
     color:black;  
   }
+  .button{
+    color:white;
+    border: 1px solid gray;
+    border-style: solid;
+    background-color:#3b78b1;
+  }
+}
+.but{
+    display:inline-block;
+    border:1px solid #fff;
+    border-radius:7px;
+    font-weight:400px;
+    width:120px;
+    height:40px;
+    float:right;
+    background:red;
+    color:white;
+    margin: 4px 4px;
+  }
+  
+}
+.but2{
+    display:inline-block;
+    border:1px solid #fff;
+    border-radius:7px;
+    font-weight:400px;
+    width:120px;
+    height:40px;
+    float:right;
+    background:#3b78b1;
+    color:white;
+    margin: 4px 4px;
+  }
+  .but22{
+    display:inline-block;
+    border:1px solid #fff;
+    border-radius:7px;
+    font-weight:400px;
+    width:150px;
+    height:40px;
+    float:right;
+    background:#3b78b1;
+    color:white;
+    margin: 4px 4px;
+  }
+  .but3{
+    display:inline-block;
+    border:1px solid #fff;
+    border-radius:7px;
+    font-weight:400px;
+    width:180px;
+    height:40px;
+    float:right;
+    background: #03fca5;
+    color:white;
+    margin: 4px 4px;
+  }
+ 
 `;

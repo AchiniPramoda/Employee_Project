@@ -151,9 +151,9 @@ class AllEmployeeContainer extends Component {
                     <div className="col">
                    
                                 
-                               <button type="button" onClick={() => { this.setState({ isGen: true }); }} class="btn btn-outline-secondary">Genrate Report
+                               
                                <img src={reports} alt="My logo"  style={{ height: 30, width: 30, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
-                               </button>
+                           
                            </div>
                            </div>
                 </div>
