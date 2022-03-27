@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import AdminEmployeeManager from '../employees/AdminEmployeeManager';
-
+import AdminPassword from './passwordgen'
 
 const AdminContainer = () => {
     return (<React.Fragment>
@@ -17,13 +17,13 @@ const AdminContainer = () => {
                     <Route path="/admin/employees">
                         <AdminEmployeeManager />
                     </Route>
-                   
                     <Route exact path="/">
-
                     </Route>
                     <Route exact path="/admin">
-               
                     </Route>
+                    <Route exact path="/admin/passwordgen">
+                    <AdminPassword/>
+               </Route>
                 </Switch>
             </Router>
         </div>
