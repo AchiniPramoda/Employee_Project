@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from './my1.png';
 import styles from "./signup.css";
 import { Alert } from '../../../../services/Alert';
@@ -13,7 +13,8 @@ const Signup = () => {
 		password: "",
 	});
 	const [error, setError] = useState("");
-	const navigate = useHistory();
+	//const navigate = useHistory();
+	const [msg,setMsg]=useState("")
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });
@@ -24,8 +25,9 @@ const Signup = () => {
 		try {
 			const url = "http://localhost:8092/api/";
 			const { data: res } = await axios.post(url, data);
-			navigate("/login");
-			console.log(res.message);
+			//navigate("/login");
+			//console.log(res.message);
+			setMsg.res.message;
 		} catch (error) {
 			if (
 				error.response &&
@@ -91,7 +93,9 @@ const Signup = () => {
 							required
 							className="inputs"
 						/>
+
 						{error && <div className="error_msg">{error}</div>}
+						{msg && <div className="sucess_msg">{msg}</div>}
 						<button type="submit" className="green_btn">
 							Sing Up
 						</button>
