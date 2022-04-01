@@ -13,8 +13,8 @@ const Signup = () => {
 		password: "",
 	});
 	const [error, setError] = useState("");
-	//const navigate = useHistory();
-	const [msg,setMsg]=useState("")
+	
+	const [msg,setMsg]=useState("");
 
 	const handleChange = ({ currentTarget: input }) => {
 		setData({ ...data, [input.name]: input.value });

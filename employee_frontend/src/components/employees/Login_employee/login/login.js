@@ -20,7 +20,7 @@ const Login = () => {
 			const url = "http://localhost:8092/api/adding";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
-			window.location = "/users";
+			window.location = "/employees";
 		} catch (error) {
 			if (
 				error.response &&
