@@ -6,7 +6,7 @@ module.exports =async(email,subject,text)=>{
      service:process.env.SERVICE,
      post:Number(process.env.Email_PORT),
      secure:Boolean(process.env.SECURE),
-     auth:{
+     user_login:{
          user:process.env.USER,
          pass:process.env.PASS
      }
@@ -21,6 +21,7 @@ module.exports =async(email,subject,text)=>{
 
     }catch(error){
 console.log("Email not sent")
+
 console.log (error)
     }
 }
