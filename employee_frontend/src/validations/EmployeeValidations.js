@@ -14,17 +14,15 @@ const EmployeeValidations = (employee_for_validation) => {
             "string.base": `Employee Number should be a type of 'text'.`,
        
         }),
-        dateOfBirth: joi.number().positive().required().messages({
-            "number.positive": `dateofbirth no can not be negative value.`,
-            "any.required": `dateofbirth Number is required.`,
-            "number.base": `Please enter dateofbirth Number.`,
+        dateOfBirth: joi.date().required().messages({
+            "any.required": `Date of Birth is required.`,
+            "date.base": `Please enter Date of Birth.`,
             
         }),
-        email: joi.number().positive().required().messages({
-            "number.positive": `email no can not be negative value.`,
-            "any.required": `email format is required.`,
-            "number.base": `Please enter email Number.`,
-            
+        email:joi.string().required().messages({
+          
+            "any.required": `Date of Birth is required.`,
+            "date.base": `Please enter Date of Birth.`,
         }),
     
        empType: joi.string().required().messages({
