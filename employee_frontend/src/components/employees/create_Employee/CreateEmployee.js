@@ -15,8 +15,9 @@ class CreateEmployee extends Component {
             image: null,
             name: "",
             empNumber: "",
+            dateOfBirth:"",
+            eamil:"",
             empType: "",
-           
             phoneNo:"",
             Address:"",
             joindate: "",
@@ -80,8 +81,10 @@ handlefileChangeFile = (e) => {
         const result = EmployeeValidations({
             name:this.state.name,
             empNumber:this.state.empNumber,
-           empType: this.state.empType,
-
+            dateOfBirth: this.state.dateOfBirth,
+            email: this.state.email,
+            empType: this.state.empType,
+        
             phoneNo:this.state.phoneNo,
             
             Address:this.state.Address,
