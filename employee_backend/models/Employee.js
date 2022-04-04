@@ -19,7 +19,7 @@ const EmployeeSchema = new mongoose.Schema({
         required: true,
        
     },
-    // add new  user
+    // add new  user columns
     dateOfBirth:{
         type:String,
         required:true,
