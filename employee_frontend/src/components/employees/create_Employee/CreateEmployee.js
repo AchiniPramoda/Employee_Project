@@ -16,7 +16,7 @@ class CreateEmployee extends Component {
             name: "",
             empNumber: "",
             dateOfBirth:"",
-            eamil:"",
+            email:"",
             empType: "",
             phoneNo:"",
             Address:"",
@@ -100,6 +100,8 @@ handlefileChangeFile = (e) => {
           
                 formData.set("name", this.state.name);
                 formData.set("empNumber", this.state.empNumber);
+                formData.set("dateOfBirth", this.state.dateOfBirth);
+                formData.set("email", this.state.email);
                formData.set("empType", this.state.empType);
                 
                 formData.set("phoneNo", this.state.phoneNo);
@@ -115,7 +117,10 @@ handlefileChangeFile = (e) => {
                         image: null,
                         filecv:null,
                         name: "",
+
                         empNumber: "",
+                        dateOfBirth:"",
+                        email:"",
                         empType: "",
                       
                         phoneNo:"",
@@ -173,7 +178,26 @@ handlefileChangeFile = (e) => {
                                             onChange={(e) => this.onInputValueChange(e)}
                                         />
                                     </div>
-                                  
+                                    <div className="mb-3">
+                                        <label for="condition" className="">Employee Birth</label>
+                                        <input
+                                            className="form-control"
+                                            id="dateOfBirth"
+                                            type="date"
+                                            value={this.state.dateOfBirth}
+                                            onChange={(e) => this.onInputValueChange(e)}
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label for="description" className="">Employee Email</label>
+                                        <input
+                                            className="form-control"
+                                            id="email"
+                                            type="date"
+                                            value={this.state.email}
+                                            onChange={(e) => this.onInputValueChange(e)}
+                                        />
+                                    </div>
                                     <div className="mb-3">
                                     <select
                                             value={this.state.empType}
