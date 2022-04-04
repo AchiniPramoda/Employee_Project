@@ -19,11 +19,22 @@ const EmployeeSchema = new mongoose.Schema({
         required: true,
        
     },
+    // add new  user columns
+    dateOfBirth:{
+        type:String,
+        required:true,
+      },
+      email:{
+        type:String,
+        required:true,
+      },
+
     phoneNo: {
         type: Number,
         required: true,
         min: 0,
     },
+ 
     Address: {
         type: String,
         required: true,
@@ -40,6 +51,7 @@ const EmployeeSchema = new mongoose.Schema({
         required: true,
       
     },
+   
     
     imageURL: {
         type: String,
