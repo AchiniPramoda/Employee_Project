@@ -19,6 +19,7 @@ const EmployeeSchema = new mongoose.Schema({
         required: true,
        
     },
+    // add new  user
     dateOfBirth:{
         type:String,
         required:true,
@@ -34,8 +35,6 @@ const EmployeeSchema = new mongoose.Schema({
         min: 0,
     },
  
-   
-  
     Address: {
         type: String,
         required: true,
