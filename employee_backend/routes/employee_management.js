@@ -1,4 +1,6 @@
 const router = require("express").Router();
+
+
 const Emoployee = require("../models/Employee");
 
 /*Router for get all Employees*/
@@ -69,7 +71,10 @@ let filecv = Prefix + "/Employees/" + fileName;
     let employee = new Emoployee({
         name: req.body.name,
         empNumber: empNumber,
+        dateOfBirth: req.body.dateOfBirth,
+        email: req.body.email,
         empType: req.body.empType,
+
         phoneNo: req.body.phoneNo,
         Address: req.body.Address,
         joindate: req.body.joindate,
@@ -155,6 +160,8 @@ router.put("/UpdateEmployee/:id", async (req, res) => {
         .then(employee => {
             employee.name = req.body.name;
             employee.empNumber = req.body.empNumber;
+            employee.dateOfBirth = req.body.dateOfBirth;
+             employee.email = req.body.email;
             employee.empType = req.body.empType;
             employee.phoneNo = req.body.phoneNo;
             employee.Address = req.body.Address;

@@ -1,9 +1,14 @@
 const router = require("express").Router();
-const { User, validate } = require("../models/user");
+const  crypto = require("crypto");
 const bcrypt = require("bcrypt");
+
+
 const Token = require("../models/token");
 const sendEmail = require("../utils/sendEmail");
-const  crypto = require("crypto")
+const { User, validate } = require("../models/user");
+
+
+
 router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
@@ -22,11 +27,11 @@ router.post("/", async (req, res) => {
 		user=await new User({ ...req.body, password: hashPassword }).save();
 
         const token = await new Token({
-			userId:user._id,
+			userId:user.id,
 			token:crypto.randomBytes(32).toString("hex")
 
 		}).save();
-		const url = `${process.env.BASE_URL}/${user.id}/verify/${token.token}`;
+		const url = `${process.env.BASE_URL}/admin/employees/${user.id}/verify/${token.token}`;
 		await sendEmail(user.email,"Verify Email",url);
 
 
@@ -36,21 +41,34 @@ router.post("/", async (req, res) => {
 	}
 });
 // route for verification token
-router.get("/:id/verfiy/:token",async(req,res)=>{
-try{
-	const user= await User.findOne({_id:req.params.id});
-	if(!user)return res.status(400).send({message:"invalid link"});
-	const token = await Token.findOne({
-		userId:user._id,
-		token:req.params.token
-	});
-	if(!token)return res.status(400).send({message:"invalid link"});
+router.get("/:id/verify/:token/", async (req, res) => {
+	try {
+		const user = await User.findOne({ _id: req.params.id });
+		if (!user) return res.status(400).send({ message: "Invalid link" });
 
-await User.updateOne({_id:req.params.id});
+		const token = await Token.findOne({
+			userId: user.id,
+			token: req.params.token,
+		});
+		if (!token) return res.status(400).send({ message: "Invalid link" });
 
-}catch(error){
-	res.status(500).send({ message: "Internal Server Error" });	
-}
 
-})
+//indByIdAndUpdate(req.params.id, { deleted: true });
+		await User.findByIdAndUpdate(req.params.id ,{verfied: true });
+		await token.remove();
+
+		res.status(200).send({ message: "Email verified successfully" });
+	} catch (error) {
+		console.log(error)
+		res.status(500).send({ message: "Internal Server Error" });
+	}
+});
+
+
+
 module.exports = router;
+
+
+
+
+
