@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import success from "./suc.png";
 import React from "react";
+//import success from "../../images/success.png";
 //import styles from "./styles.module.css";
+import  "./style.css";
+import success from './suc.png';
+import success2 from './mm.jpg';
+import RobotAnimated from "./robot-animated"
+
 import { Fragment } from "react/cjs/react.production.min";
 
 const EmailVerify = () => {
@@ -28,18 +33,29 @@ const EmailVerify = () => {
 	return (
 		<Fragment>
 			{validUrl ? (
-				<div className="styles.container">
+				<div className="containers">
 					<img src={success} alt="success_img" className="styles.success_img" />
 					<h1>Email verified successfully</h1>
-					<Link to="/login">
-						<button className="styles.green_btn">Login</button>
+					<Link to="/admin/employees/Login">
+						<button className="green_btn">Login</button>
 					</Link>
 				</div>
 			) : (
-				<h1>404 Not Found</h1>
+				
+				<h1>404 Not Found<br/>
+				
+				
+				<div>
+              <RobotAnimated />
+                </div>
+				something went wrong ,Try again !!!!!!!
+				</h1>
+
 			)}
+			
 		</Fragment>
 	);
 };
+
 
 export default EmailVerify;

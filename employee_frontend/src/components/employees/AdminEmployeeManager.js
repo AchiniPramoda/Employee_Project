@@ -40,7 +40,7 @@ const AdminManager = () => {
                 <Route path="/admin/employees/signup">
                     <Signup />
                 </Route>
-                <Route path="/use/:id/verify/:token">
+                <Route path="/admin/employees/:id/verify/:token/">
                     <EmailVerify/>
                 </Route>
                 

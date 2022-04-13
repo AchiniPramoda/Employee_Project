@@ -15,6 +15,8 @@ class UpdateEmployee extends Component {
             id:"",
             name:"",
             empNumber:"",
+            dateOfBirth:"",
+            email:"",
             empType: "",
             phoneNo:"",
             Address:"",
@@ -43,6 +45,8 @@ class UpdateEmployee extends Component {
                     },
                     name:employee.name,
                     empNumber:employee.empNumber,
+                    dateOfBirth:employee.dateOfBirth,
+                    email:employee.email,
                     empType:employee.empType,
                     phoneNo:employee.phoneNo,
                     Address:employee.Address,
@@ -102,6 +106,8 @@ handlefileChangeFile = (e) => {
         const result =EmployeeValidations({
             name:this.state.name,
              empNumber:this.state.empNumber,
+             dateOfBirth:this.state.dateOfBirth,
+             email:this.state.email,
              empType:this.state.empType,
             phoneNo:this.state.phoneNo,
              Address:this.state.Address,
@@ -117,6 +123,8 @@ handlefileChangeFile = (e) => {
                 formData.append("files", this.state.fileme);
                 formData.set("name", this.state.name);
                 formData.set("empNumber", this.state.empNumber);
+                formData.set("dateOfBirth", this.state.dateOfBirth);
+                formData.set("email", this.state.email);
                 formData.set("empType", this.state.empType);
                 formData.set("phoneNo", this.state.phoneNo);
                 formData.set("Address", this.state.Address);
@@ -131,7 +139,9 @@ handlefileChangeFile = (e) => {
                         image:null,
                         filecv:null,
                         name:"",
-                         empNumber:"",
+                        empNumber:"",
+                        dateOfBirth:"",
+                        email:"",
                          empType:"",
                         phoneNo:"",
                          Address:"",
@@ -187,7 +197,26 @@ handlefileChangeFile = (e) => {
                                             onChange={(e) => this.onInputValueChange(e)}
                                         />
                                     </div>
-                                   
+                                    <div className="mb-3">
+                                        <label for="condition" className="">Employee Birth</label>
+                                        <input
+                                            className="form-control"
+                                            id="dateOfBirth"
+                                            type="date"
+                                            value={this.state.dateOfBirth}
+                                            onChange={(e) => this.onInputValueChange(e)}
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label for="description" className="">Employee Email</label>
+                                        <input
+                                            className="form-control"
+                                            id="email"
+                                            type="date"
+                                            value={this.state.email}
+                                            onChange={(e) => this.onInputValueChange(e)}
+                                        />
+                                    </div>
                                     <div className="mb-3">
                                         <label for="price" className="form-label">Date Of Birth</label>
                                         <select

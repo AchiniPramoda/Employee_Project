@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from './my1.png';
 import styles from "./signup.css";
-import { Alert } from '../../../../services/Alert';
+//import { Alert } from '../../../../services/Alert';
 const Signup = () => {
 	const [data, setData] = useState({
 		firstName: "",
@@ -26,8 +26,7 @@ const Signup = () => {
 			const url = "http://localhost:8092/api/";
 			const { data: res } = await axios.post(url, data);
 			//navigate("/login");
-			//console.log(res.message);
-			setMsg.res.message;
+			setMsg(res.message);
 		} catch (error) {
 			if (
 				error.response &&

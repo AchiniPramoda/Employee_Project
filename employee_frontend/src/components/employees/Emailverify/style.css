@@ -1,7 +1,7 @@
-.container{
+.containers{
 
 width: 100vh;
-height: 100vw;
+height: 40vw;
 display:flex;
 align-items: center;
 justify-content: center;
@@ -19,4 +19,9 @@ justify-content: center;
     font-weight: bold;
     font-size: 14px;
 
+}
+
+h1{
+    text-align: center;
+    color:white;
 }
