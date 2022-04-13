@@ -11,6 +11,7 @@ import Empmore from "./employee_views/admin/moreEmployeeAction";
 import Login from './Login_employee/login/login';
 import AllEmployeeContainer from './employee_views/admin/AllEmployeeContainer';
 import Signup from './Login_employee/Signup/signup';
+import EmailVerify from './Emailverify/EmailVerify';
 
 const AdminManager = () => {
    
@@ -39,7 +40,9 @@ const AdminManager = () => {
                 <Route path="/admin/employees/signup">
                     <Signup />
                 </Route>
-          
+                <Route path="/admin/employees/:id/verify/:token/">
+                    <EmailVerify/>
+                </Route>
                 
                 <Route path="/">
                     <AllEmployeeContainer />

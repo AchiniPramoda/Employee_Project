@@ -1,8 +1,9 @@
-
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import styled from 'styled-components';
+
+
 import { Alert } from '../../../services/Alert';
 import EmployeeValidations from '../../../validations/EmployeeValidations';
 import dummy_image from "../../../assets/images/dummy_image.jpg";
@@ -26,8 +27,6 @@ class CreateEmployee extends Component {
            
         }
     }
-
-
 
     // Handle input feild
     onInputValueChange = (e) => {
@@ -84,9 +83,7 @@ handlefileChangeFile = (e) => {
             dateOfBirth: this.state.dateOfBirth,
             email: this.state.email,
             empType: this.state.empType,
-        
             phoneNo:this.state.phoneNo,
-            
             Address:this.state.Address,
             joindate:this.state.joindate,
             ivalutionDate:this.state.ivalutionDate,
@@ -122,7 +119,6 @@ handlefileChangeFile = (e) => {
                         dateOfBirth:"",
                         email:"",
                         empType: "",
-                      
                         phoneNo:"",
                         Address:"",
                         joindate: "",
@@ -300,7 +296,6 @@ const CreateContainer = styled.div`
   h4{
     front-color: black
   }
-
 .nav-link{
 color:white !important;
 &:hover{

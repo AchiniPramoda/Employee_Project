@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import axios from "axios"
 import ReactToPrint from 'react-to-print';
 import styled from 'styled-components';
+
 import EmployeeActions from './EmployeeAction';
 import {  MDBIcon } from "mdbreact";
 import  reports from './report.png'
@@ -49,6 +50,7 @@ class AllEmployeeContainer extends Component {
     }
 
     // Function for search employees
+
     search = (e) => {
         let searchTag = e.target.value.toLowerCase();
         let FilterEmployeee = [];
@@ -102,8 +104,7 @@ class AllEmployeeContainer extends Component {
                                     onAfterPrint={() => { this.setState({ isGen: false }); }}
                                     trigger={() => {
                                         return <button type="button" class="but2">Generate PDF
-                                        </button>
-                                        
+                                        </button>       
                                     }}
                                     
                                     content={() => this.componentRef}
@@ -175,17 +176,15 @@ const SearchContainer = styled.div`
     margin-top:30px;
     border: 1px solid  gray;
 }
-    .table{
+.table{
         tr:nth-child(even) {background-color: #CCC}
         tr:nth-child(odd) {background-color: #FFF}
-    }
+ }
     
-
-
 tr:hover {background-color: #ddd;
 };
 
-    th:nth-child{background-color:#ddd;};
+th:nth-child{background-color:#ddd;};
 .nav-link{
 color:white !important;
 
@@ -197,22 +196,22 @@ table th,tr {
     border: 1px solid black;
     border-style: solid
   }
- .btn{
+.btn{
       color:white;
       border-radius:7px;
       border: 1px solid gray;
       border-style: solid;
       width:89%;
-  }
-  h3{
+}
+h3{
     color:black;  
-  }
-  .button{
+}
+.button{
     color:white;
     border: 1px solid gray;
     border-style: solid;
     background-color:#3b78b1;
-  }
+}
 }
 .but{
     display:inline-block;

@@ -148,10 +148,7 @@ class AllEmployeeContainer extends Component {
                         </div>
                     </div>
                     <div className="row text-end">  
-                    <div className="col">
-                   
-                                
-                               
+                    <div className="col">  
                                <img src={reports} alt="My logo"  style={{ height: 30, width: 30, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:10} }/>
                            
                            </div>
