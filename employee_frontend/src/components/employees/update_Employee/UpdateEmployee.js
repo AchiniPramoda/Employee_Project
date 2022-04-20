@@ -17,6 +17,7 @@ class UpdateEmployee extends Component {
             empNumber:"",
             dateOfBirth:"",
             email:"",
+            password: "",
             empType: "",
             phoneNo:"",
             Address:"",
@@ -47,6 +48,7 @@ class UpdateEmployee extends Component {
                     empNumber:employee.empNumber,
                     dateOfBirth:employee.dateOfBirth,
                     email:employee.email,
+                    password: employee.password,
                     empType:employee.empType,
                     phoneNo:employee.phoneNo,
                     Address:employee.Address,
@@ -106,8 +108,9 @@ handlefileChangeFile = (e) => {
         const result =EmployeeValidations({
             name:this.state.name,
              empNumber:this.state.empNumber,
-             dateOfBirth:this.state.dateOfBirth,
+           //dateOfBirth:this.state.dateOfBirth,
              email:this.state.email,
+                password: this.state.password,
              empType:this.state.empType,
             phoneNo:this.state.phoneNo,
              Address:this.state.Address,
@@ -125,6 +128,7 @@ handlefileChangeFile = (e) => {
                 formData.set("empNumber", this.state.empNumber);
                 formData.set("dateOfBirth", this.state.dateOfBirth);
                 formData.set("email", this.state.email);
+                formData.set("password", this.state.password);
                 formData.set("empType", this.state.empType);
                 formData.set("phoneNo", this.state.phoneNo);
                 formData.set("Address", this.state.Address);
@@ -142,6 +146,7 @@ handlefileChangeFile = (e) => {
                         empNumber:"",
                         dateOfBirth:"",
                         email:"",
+                        password: "",
                          empType:"",
                         phoneNo:"",
                          Address:"",
@@ -212,13 +217,23 @@ handlefileChangeFile = (e) => {
                                         <input
                                             className="form-control"
                                             id="email"
-                                            type="date"
+                                            type="email"
                                             value={this.state.email}
                                             onChange={(e) => this.onInputValueChange(e)}
                                         />
                                     </div>
                                     <div className="mb-3">
-                                        <label for="price" className="form-label">Date Of Birth</label>
+                                        <label for="description" className="">Employee password</label>
+                                        <input
+                                            className="form-control"
+                                            id="password"
+                                            type="password"
+                                            value={this.state.password}
+                                            onChange={(e) => this.onInputValueChange(e)}
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label for="price" className="form-label">Employee Type</label>
                                         <select
                                             value={this.state.empType}
                                             onChange={(e) => this.onSelectValueChange(e)}

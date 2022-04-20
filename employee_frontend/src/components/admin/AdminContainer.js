@@ -14,6 +14,7 @@ const AdminContainer = () => {
         <div className="container">
             <Router>     
                 <Switch>
+                    
                     <Route path="/admin/employees">
                         <AdminEmployeeManager />
                     </Route>

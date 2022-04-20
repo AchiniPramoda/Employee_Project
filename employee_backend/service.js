@@ -38,11 +38,13 @@ const EmployeeManagement = require("./routes/employee_management");
 const UserManagement = require("./routes/user_manegement");
 
 const LoginManagement = require("./routes/user_login");
+const RequestManagement = require("./routes/request_management");
 
 // Use routes
 app.use("/api", EmployeeManagement);
-app.use("/api", UserManagement);
+//app.use("/api", UserManagement);
 app.use("/api",LoginManagement)
+app.use("/api",RequestManagement)
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
 

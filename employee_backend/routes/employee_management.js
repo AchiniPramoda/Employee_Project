@@ -1,7 +1,12 @@
-const router = require("express").Router();
-
-
+ const router = require("express").Router();
+const sendEmail = require("../utils/sendEmail");
+const  crypto = require("crypto");
+const bcrypt = require("bcrypt");
+const Token = require("../models/token");
 const Emoployee = require("../models/Employee");
+const Employee = require("../models/Employee");
+
+//const { request } = require("https");
 
 /*Router for get all Employees*/
 router.get("/get",(req, res) => {
@@ -21,7 +26,14 @@ router.get("/", async (req, res) => {
         .catch(err => res.status(400).send('Error: ' + err))
 
 });
+/*Router for get all Employees*/
+router.get("/getting", async (req, res) => {
 
+    await Emoployee.find(req.params.id )
+        .then(employee => res.send(employee))
+        .catch(err => res.status(400).send('Error: ' + err))
+
+});
 /*Router for get Emoployee by Id*/
 router.get("/:id", async (req, res) => {
 
@@ -42,6 +54,11 @@ router.post('/Add',async (req, res) => {
 
     if (Exit)
         return res.status(404).send("employee already created!");
+        let user = await Emoployee.findOne({ email: req.body.email });
+	if (user)
+			return res
+				.status(409)
+				.send( "User with given email already Exist!");
 
     let image = req.files.photo;
     let urlPrefix = "http://localhost:8092/static/images";
@@ -73,8 +90,8 @@ let filecv = Prefix + "/Employees/" + fileName;
         empNumber: empNumber,
         dateOfBirth: req.body.dateOfBirth,
         email: req.body.email,
+        password: req.body.password,
         empType: req.body.empType,
-
         phoneNo: req.body.phoneNo,
         Address: req.body.Address,
         joindate: req.body.joindate,
@@ -84,12 +101,27 @@ let filecv = Prefix + "/Employees/" + fileName;
     });
 
     try {
+       
+        const salt = await bcrypt.genSalt(Number(process.env.SALT));
+		const hashPassword = await bcrypt.hash(req.body.password, salt);
+
+        employee.password = hashPassword;
+        
+        const token = await new Token({
+			userId:employee.id,
+			token:crypto.randomBytes(32).toString("hex")
+            
+		}).save();
         await employee.save();
         res.send(employee);
+        const url = `${process.env.BASE_URL}/admin/employees/${employee.id}/verify/${token.token}`;
+		await sendEmail(employee.email,"Verify Email",url);
+
+        //await for send email
     } catch (err) {
-        console.log(err);
+        coe.log(err);
         res.status(400).send('Error: ' + err);
-    }
+   }
 
 });
 
@@ -179,7 +211,50 @@ router.put("/UpdateEmployee/:id", async (req, res) => {
         })
         .catch(err => res.status(400).send("Error : " + err));
 
+
+
+       
 });
+ //route for update employee name and password
+ router.put("/UpdateEmployeeName/:id", async (req, res) => {
+                
+    console.log(req.body);
+
+    await Emoployee.findById(req.params.id)
+        .then(employee => {
+            employee.email= req.body.email;
+            employee.password = req.body.password;
+            employee.newpassword = req.body.newpassword;
+            employee.save()
+                .then(() => res.send("Updated Successfully!"))
+                .catch(err => res.status(400).send('Error: ' + err));
+        })
+        .catch(err => res.status(400).send("Error : " + err));
+
+});
+router.get("/:id/verify/:token/", async (req, res) => {
+	try {
+		const employee = await Emoployee.findOne({ _id: req.params.id });
+		if (!employee) return res.status(400).send({ message: "Invalid link" });
+
+		const token = await Token.findOne({
+			userId: employee.id,
+			token: req.params.token,
+		});
+		if (!token) return res.status(400).send({ message: "Invalid link" });
+
+
+//indByIdAndUpdate(req.params.id, { deleted: true });
+		await Emoployee.findByIdAndUpdate(req.params.id ,{verfied: true });
+		await token.remove();
+
+		res.status(200).send({ message: "Email verified successfully" });
+	} catch (error) {
+		console.log(error)
+		res.status(500).send({ message: "Internal Server Error" });
+	}
+});
+//route for the send request to request title and description and 
 
 
 module.exports = router;
