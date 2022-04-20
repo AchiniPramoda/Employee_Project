@@ -19,6 +19,19 @@ router.get("/get",(req, res) => {
 
 });
 
+
+//birthday route
+router.get("/todaybday", async (req, res) => {
+    var today = new Date();
+        var date = today.getFullYear()+'-0'+(today.getMonth()+1)+'-'+today.getDate();
+    Emoployee.find({ dateOfBirth:date })
+        .then(employee => res.send(employee))
+        
+        .catch(err => res.status(400).send('Error: ' + err))
+});
+
+
+
 router.get("/", async (req, res) => {
 
     await Emoployee.find(req.params.id )
