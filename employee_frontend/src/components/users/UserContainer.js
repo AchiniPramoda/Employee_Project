@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import AllemployeeContainer from '../employees/employee_views/user/AllForUser';
-
+import Dashboad from '../employees/Login_employee/Userdashboad/Edituser';
 const  UserContainer= () => {
   
     return (<React.Fragment>
@@ -13,7 +13,11 @@ const  UserContainer= () => {
             <Switch>
                 <Route path="/">
                     <AllemployeeContainer />
-                </Route>    
+                </Route> 
+                
+                <Route path="/users/Dashbord">
+                    <Dashboad />
+                </Route>     
             </Switch>
     </React.Fragment>);
 }

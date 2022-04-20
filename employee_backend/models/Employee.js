@@ -51,23 +51,26 @@ const EmployeeSchema = new mongoose.Schema({
         required: true,
       
     },
-   
-    
+
+    password: { 
+        type: String
+    },
     imageURL: {
         type: String,
-        required: true,
+        //required: true,
     },
 
     filecv: {
         type: String,
-        required: true,
+        //required: true,
     },
     // deleted flag for soft delete feature
     deleted: {
         type: Boolean,
         index: true,
         default: false
-      }
+      },
+      verfied:{type:Boolean,default:false}
     
 },
 

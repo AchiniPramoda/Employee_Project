@@ -1,8 +1,8 @@
 
-const { User } = require("../models/user");
+//const { Employee} = require("../models/Employee");
 const Token = require("../models/token");
 const sendEmail = require("../utils/sendEmail");
-
+const Employee = require("../models/Employee");
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
 const  crypto = require("crypto");
@@ -16,33 +16,35 @@ router.post("/adding", async (req, res) => {
 		if (error)
 			return res.status(400).send({ message: error.details[0].message });
 
-		const user = await User.findOne({ email: req.body.email });
-		if (!user)
+		const  employee = await Employee.findOne({email: req.body.email });
+		if (!employee)
 			return res.status(401).send({ message: "Invalid Email or Password" });
 
-		const validPassword = await bcrypt.compare(
-			req.body.password,
-			user.password
-		);
+	// compare password with hash password in database and return true or false 
+	
+		const validPassword = await bcrypt.compare(req.body.password, employee.password);
 		if (!validPassword)
 			return res.status(401).send({ message: "Invalid Email or Password" });
-        if(!user.verfied){
-			let  token =await Token.findOne({userId:user});
+			
+		
+        if(!employee.verfied){
+			let  token =await Token.findOne({userId:employee});
 			if(!token){
 				token = await new Token({
-					userId:user._id,
+					userId:employee._id,
 					token:crypto.randomBytes(32).toString("hex")
 		
 				}).save();
-				const url = `${process.env.BASE_URL}/api/${user.id}/verify/${token.token}`;
-				await sendEmail(user.email,"Verify Email",url);
+				//const url = `${process.env.BASE_URL}/api/${employee.id}/verify/${token.token}`;
+				//await sendEmail(employee.email,"Verify Email",url);
 			}
-          return res.status(400).send({message:"verfiy your email "});
+          //return res.status(400).send({message:"verfiy your email "});
 		}
-		const token = user.generateAuthToken();
-		res.status(200).send({ data: token, message: "logged in successfully" });
+		//const token = employee.generateAuthToken();
+		res.status(200).send({  message: "logged in successfully" });
 	} catch (error) {
 		res.status(500).send({ message: "Internal Server Error" });
+		console.log(error);
 	}
 });
 //create validation function

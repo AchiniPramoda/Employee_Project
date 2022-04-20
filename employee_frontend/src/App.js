@@ -12,7 +12,7 @@ import Footer from './components/shared/footer/Footer';
 
 import AllEmployeeForUser from './components/employees/employee_views/user/AllForUser';
 
-import AdminNavbar from './components/shared/navigators/AdminNavbar';
+ import AdminNavbar from './components/shared/navigators/AdminNavbar';
 function App() {
 
   return (
