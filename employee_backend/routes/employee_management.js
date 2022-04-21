@@ -27,13 +27,15 @@ router.get("/", async (req, res) => {
 
 });
 /*Router for get all Employees*/
-router.get("/getting", async (req, res) => {
+router.get("/getting/:email", async (req, res) => {
 
-    await Emoployee.find(req.params.id )
+    await Emoployee.find({email:req.params.email})
         .then(employee => res.send(employee))
         .catch(err => res.status(400).send('Error: ' + err))
 
 });
+
+
 /*Router for get Emoployee by Id*/
 router.get("/:id", async (req, res) => {
 
@@ -220,7 +222,7 @@ router.put("/UpdateEmployee/:id", async (req, res) => {
                 
     console.log(req.body);
 
-    await Emoployee.findById(req.params.id)
+    await Emoployee.findOne(req.params.email)
         .then(employee => {
             employee.email= req.body.email;
             employee.password = req.body.password;
@@ -232,6 +234,9 @@ router.put("/UpdateEmployee/:id", async (req, res) => {
         .catch(err => res.status(400).send("Error : " + err));
 
 });
+
+
+
 router.get("/:id/verify/:token/", async (req, res) => {
 	try {
 		const employee = await Emoployee.findOne({ _id: req.params.id });
