@@ -13,7 +13,7 @@ class UpdateEmployeeName  extends Component {
        
 
         this.state = {
-            id:"",
+     
             email:"",
             password:"",
             
@@ -22,12 +22,17 @@ class UpdateEmployeeName  extends Component {
 
     // Update Categories by fetching from datasbase
     componentDidMount() {
-        // request to get employee by id
-        axios.get(`http://localhost:8092/api/getting/${this.props.match.params.id}`).then(res => {
-            let employee = res.data;
 
+        //const my = "apmoffice456@gmail.com";
+
+        //console.log(my);
+
+        // request to get employee by id
+        axios.get(`http://localhost:8092/api/getting/${this.props.match.params.email}`).then(res => {
+        
+        const employee = this.props.employee;
                 this.setState({
-                    id: employee._id,
+           
                     email: employee.email,
                     password: employee.password,
                     newpassword: employee.newpassword,
@@ -65,13 +70,14 @@ class UpdateEmployeeName  extends Component {
         console.log(this.state);
 
                 const formData = new FormData();
+              
             // formData.append('id', this.state.id);
-                formData.set("email", this.state.email);
+            formData.append('email', this.state.email);
                 formData.set("password", this.state.password);
                 formData.set("newpassword", this.state.newpassword);
                 
 
-                axios.put(`http://localhost:8092/api/UpdateEmployeeName/${this.state._id}`, formData).then(res => {
+                axios.put(`http://localhost:8092/api/UpdateEmployeeName/${this.state.email}`, formData).then(res => {
                     Alert("success", "Done!", "updated Successfully.");
                     this.setState({
 
@@ -81,7 +87,7 @@ class UpdateEmployeeName  extends Component {
 
                     });
 
-                    this.props.history.push("/admin/employees")
+                    this.props.history.push("/admin/employees/userdashboard/SendRequest");
 
                 }).catch(err => {
                     Alert("error", "Something went wrong.", err)

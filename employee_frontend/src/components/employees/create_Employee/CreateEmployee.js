@@ -8,6 +8,8 @@ import { Alert } from '../../../services/Alert';
 import EmployeeValidations from '../../../validations/EmployeeValidations';
 import dummy_image from "../../../assets/images/dummy_image.jpg";
 
+//asign to the values using java script constructor     
+    
 
 class CreateEmployee extends Component {
     constructor(props) {//asign to the values using java script constructor

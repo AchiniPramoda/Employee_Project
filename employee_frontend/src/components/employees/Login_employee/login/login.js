@@ -32,7 +32,7 @@ const Login = () => {
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
 			
-			window.location = "/admin/employees/UpdateEmployeeName/:id";
+			window.location = `/admin/employees/UpdateEmployeeName/${data.email}`;
 			}
 		} catch (error) {
 			if (

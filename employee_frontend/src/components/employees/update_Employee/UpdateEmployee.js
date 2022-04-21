@@ -107,15 +107,15 @@ handlefileChangeFile = (e) => {
 
         const result =EmployeeValidations({
             name:this.state.name,
-             empNumber:this.state.empNumber,
+            empNumber:this.state.empNumber,
            //dateOfBirth:this.state.dateOfBirth,
-             email:this.state.email,
-                password: this.state.password,
-             empType:this.state.empType,
+            email:this.state.email,
+            password: this.state.password,
+            empType:this.state.empType,
             phoneNo:this.state.phoneNo,
-             Address:this.state.Address,
+            Address:this.state.Address,
             joindate:this.state.joindate,
-             ivalutionDate:this.state.ivalutionDate,
+            ivalutionDate:this.state.ivalutionDate,
           
         });
 
