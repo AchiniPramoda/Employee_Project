@@ -9,6 +9,7 @@ require("dotenv").config();
 const path = require("path");
 const fileupload = require("express-fileupload");
 
+const cron = require('node-cron');
 
 const PORT = process.env.PORT ;
 
@@ -40,6 +41,9 @@ const UserManagement = require("./routes/user_manegement");
 const LoginManagement = require("./routes/user_login");
 const RequestManagement = require("./routes/request_management");
 
+const sendWishes = require("./routes/birthday");
+const sendMail=require('./routes/bdayemail');
+
 // Use routes
 app.use("/api", EmployeeManagement);
 //app.use("/api", UserManagement);
@@ -50,4 +54,12 @@ app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.listen(PORT, () =>{
     console.log(`Server is up and running in port no : `+PORT);
+});
+
+cron.schedule('* * 07 * * *', () => {
+    console.log('running task at 7am');
+    //getAllUsers();
+    sendMail();   //birthday user wish
+   //multiple wishes
+   // sendWishes();
 });

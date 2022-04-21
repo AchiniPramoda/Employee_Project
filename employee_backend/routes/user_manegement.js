@@ -2,7 +2,7 @@ const router = require("express").Router();
 const  crypto = require("crypto");
 const bcrypt = require("bcrypt");
 
-
+///////////////
 const Token = require("../models/token");
 const sendEmail = require("../utils/sendEmail");
 const { User, validate } = require("../models/user");

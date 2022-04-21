@@ -119,6 +119,7 @@ handlefileChangeFile = (e) => {
                         image: null,
                         filecv:null,
                         name: "",
+
                         empNumber: "",
                         dateOfBirth:"",
                         email:"",

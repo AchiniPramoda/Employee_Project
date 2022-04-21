@@ -40,6 +40,10 @@ const AdminNavbar = () => {
                     <li onClick={() => handleClick("/admin/employees/")} className="nav-item active">
                         <a className="nav-link" href="#">Emoployee update</a>
                     </li>
+                    
+                    <li onClick={() => handleClick("/admin/employees/notification/")} className="nav-item active">
+                        <a className="nav-link" href="#">Notifications</a>
+                    </li>
     </ul>
   </div>
 
