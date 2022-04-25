@@ -46,9 +46,7 @@ const AdminManager = () => {
                         <EditUser {...props} key={window.location.pathname} />
                     )}
                 />
-              <Route path="/admin/employees/">
-                    <EmailVerify/>
-                </Route>
+              
                 
                 <Route path="/admin/employees/:id/verify/:token/">
                     <EmailVerify/>
