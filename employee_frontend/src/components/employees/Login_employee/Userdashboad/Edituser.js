@@ -87,7 +87,7 @@ class UpdateEmployeeName  extends Component {
 
                     });
 
-                    this.props.history.push("/admin/employees/userdashboard/SendRequest");
+                    this.props.history.push("/admin/employees/AddRequest");
 
                 }).catch(err => {
                     Alert("error", "Something went wrong.", err)

@@ -54,7 +54,11 @@ const EmployeeValidations = (employee_for_validation) => {
             "string.base": ` Ivalution Date should be a type of 'text'.`,
             
         }),
-
+        title:joi.string().required().messages({
+          
+            "any.required": `title required.`,
+            //"date.base": `Please enter Date of Birth.`,
+        }),
     });
 
     const result = schema.validate(employee_for_validation);

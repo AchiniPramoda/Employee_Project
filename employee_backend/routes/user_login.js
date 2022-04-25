@@ -16,7 +16,7 @@ router.post("/adding", async (req, res) => {
 		if (error)
 			return res.status(400).send({ message: error.details[0].message });
 
-		const  employee = await Employee.findOne({email: req.body.email });
+		const  employee = await Employee.findOne({id: req.body._id });
 		if (!employee)
 			return res.status(401).send({ message: "Invalid Email or Password" });
 
