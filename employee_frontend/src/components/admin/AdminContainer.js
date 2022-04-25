@@ -6,7 +6,8 @@ import {
 } from "react-router-dom";
 
 import AdminEmployeeManager from '../employees/AdminEmployeeManager';
-import AdminPassword from './passwordgen'
+import AdminRequest from '../employees/Login_employee/Userdashboad/allRequest';
+import AdminPassword from './passwordgen';
 
 const AdminContainer = () => {
     return (<React.Fragment>
@@ -17,6 +18,9 @@ const AdminContainer = () => {
                     
                     <Route path="/admin/employees">
                         <AdminEmployeeManager />
+                    </Route>
+                    <Route path="/admin/request">
+                        <AdminRequest />
                     </Route>
                     <Route exact path="/">
                     </Route>
