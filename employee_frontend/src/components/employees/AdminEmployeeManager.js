@@ -13,6 +13,7 @@ import AllEmployeeContainer from './employee_views/admin/AllEmployeeContainer';
 import Signup from './Login_employee/Signup/signup';
 import EditUser from './Login_employee/Userdashboad/Edituser';
 import EmailVerify from './Emailverify/EmailVerify';
+import AddRequest from './Login_employee/Userdashboad/SendRequest'
 
 const AdminManager = () => {
    
@@ -46,12 +47,14 @@ const AdminManager = () => {
                         <EditUser {...props} key={window.location.pathname} />
                     )}
                 />
-              
+           
                 
                 <Route path="/admin/employees/:id/verify/:token/">
                     <EmailVerify/>
                 </Route>
-                
+                <Route path="/admin/employees/AddRequest">
+                    <AddRequest/>
+                </Route>
                 <Route path="/">
                     <AllEmployeeContainer />
                 </Route>

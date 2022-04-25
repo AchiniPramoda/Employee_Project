@@ -29,8 +29,8 @@ const Login = () => {
 			else {			
 					
 			const url = "http://localhost:8092/api/adding";
-			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
+			//const { data: res } = await axios.post(url, data);
+			//localStorage.setItem("token", res.data);
 			
 			window.location = `/admin/employees/UpdateEmployeeName/${data.email}`;
 			}

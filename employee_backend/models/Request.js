@@ -20,7 +20,13 @@ const requestShema = new Schema({
         min: 3,
         max: 255,
     },
-
+   status: {
+        type: String,
+        required: true,
+        default: false,
+        min: 3,
+        max: 255,
+    },
 
 });
 

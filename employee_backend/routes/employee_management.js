@@ -69,7 +69,7 @@ router.post('/Add',async (req, res) => {
 
     if (Exit)
         return res.status(404).send("employee already created!");
-        let user = await Emoployee.findOne({ email: req.body.email });
+        let user = await Emoployee.findOne({ email: req.body.id });
 	if (user)
 			return res
 				.status(409)
@@ -234,7 +234,8 @@ router.put("/UpdateEmployee/:id", async (req, res) => {
  router.put("/UpdateEmployeeName/:id", async (req, res) => {
                 
     console.log(req.body);
-
+   
+    
     await Emoployee.findOne(req.params.email)
         .then(employee => {
             employee.email= req.body.email;
