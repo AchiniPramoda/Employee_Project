@@ -4,7 +4,7 @@ import axios from "axios";
 import styled from 'styled-components';
 import EmployeeValidations from '../../../../validations/EmployeeValidations';
 import { Alert } from '../../../../services/Alert';
-
+import logo from './qq.jpg';
 class UpdateEmployeeName  extends Component {
       
 
@@ -103,16 +103,16 @@ class UpdateEmployeeName  extends Component {
     render() {
         return (   
             <CreateContainer>
-    
+    <br/>
             <div className="container">
               <div className="">
                     <div className="row g-0">
                         <div className="col-md-7">
-                         <h3>Change your password here</h3>
+                         <img src={logo} alt="My logo"  style={{ height: 380, width: 480, borderColor: 'gray', borderWidth: 2,  marginBottom: 10 , marginleft:-80} }/>
                         </div>
                         <div className="col-md-5 p-3">
                             <div className="card-body">
-                                <h4 className="card-title text-secondary mt-3">Create Emoployee</h4>
+                                <h4 >Update  Emoployee Password</h4>
                                 <hr class="" />
                                 
                                 <form onSubmit={(e) => this.submit(e)}>
@@ -166,9 +166,7 @@ class UpdateEmployeeName  extends Component {
 
 export default withRouter(UpdateEmployeeName);
 const CreateContainer = styled.div`
-  img{
-   height:600px;
-  }
+ 
   h4{
     front-color: black
   }
@@ -183,13 +181,8 @@ div {
     background-color: white;
     padding:1px;
   }
-  .container{
-    background:gray;
-    margin-top:30px;
-    border: 7px solid  gray
-}
-.imag{
-    background-image: url(../../../assets/images/dummy_image.jpg);
+
+
   
   hr{
     height: 10px;
